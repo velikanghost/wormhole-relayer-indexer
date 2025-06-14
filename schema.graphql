@@ -1,0 +1,42 @@
+type WormholeRelayer_AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+}
+
+type WormholeRelayer_BeaconUpgraded {
+  id: ID!
+  beacon: String!
+}
+
+type WormholeRelayer_ContractUpgraded {
+  id: ID!
+  oldContract: String!
+  newContract: String!
+}
+
+type WormholeRelayer_Delivery {
+  id: ID!
+  recipientContract: String!
+  sourceChain: BigInt!
+  sequence: BigInt!
+  deliveryVaaHash: String!
+  status: BigInt!
+  gasUsed: BigInt!
+  refundStatus: BigInt!
+  additionalStatusInfo: String!
+  overridesInfo: String!
+}
+
+type WormholeRelayer_SendEvent {
+  id: ID!
+  sequence: BigInt!
+  deliveryQuote: BigInt!
+  paymentForExtraReceiverValue: BigInt!
+}
+
+type WormholeRelayer_Upgraded {
+  id: ID!
+  implementation: String!
+}
+

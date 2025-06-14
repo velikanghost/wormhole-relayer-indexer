@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 10143
+  start_block: 0
+  contracts:
+  - name: WormholeRelayer
+    address:
+    - 0x362fca37E45fe1096b42021b543f462D49a5C8df
+    handler: src/EventHandlers.ts
+    events:
+    - event: AdminChanged(address previousAdmin, address newAdmin)
+    - event: BeaconUpgraded(address indexed beacon)
+    - event: ContractUpgraded(address indexed oldContract, address indexed newContract)
+    - event: Delivery(address indexed recipientContract, uint16 indexed sourceChain, uint64 indexed sequence, bytes32 deliveryVaaHash, uint8 status, uint256 gasUsed, uint8 refundStatus, bytes additionalStatusInfo, bytes overridesInfo)
+    - event: SendEvent(uint64 indexed sequence, uint256 deliveryQuote, uint256 paymentForExtraReceiverValue)
+    - event: Upgraded(address indexed implementation)
+unordered_multichain_mode: true
